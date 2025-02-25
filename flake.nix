@@ -1,21 +1,15 @@
 {
-
-  description = "ICDCS 2024 Tutorial materials.";
-
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
   };
 
-  outputs = { self, nixpkgs, flake-utils, poetry2nix, ... }: flake-utils.lib.eachDefaultSystem (system: 
+  outputs = { self, nixpkgs }:
     let
-      pkgs = import nixpkgs { inherit system; config.allowUnfree = true; };
+      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
+      forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     in {
-      devShells.default = with pkgs; mkShellNoCC {
-        buildInputs = [ 
-          python311
-          poetry
-        ];
-      };
-    });
+      devShells = forAllSystems (system: {
+        default = import ./shell.nix { pkgs = import nixpkgs { inherit system; }; };
+      });
+    };
 }

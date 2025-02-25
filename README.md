@@ -35,9 +35,8 @@ With several years of experience within the IMT group, particularly at IMT Atlan
 His work involves fostering inter-affiliate collaborations, overseeing doctoral programs, managing the PhD diploma of IMT, and coordinating the activities of its 11 scientific communities.
 
 He has over 15 years of experience in research and higher education.
-Between June 2023 and September 2024, he served as Director of Research and Innovation at IMT Nord Europe, where he led research and innovation initiatives in alignment with IMT’s strategic objectives.
-Before that, he was a Professor at IMT Atlantique for six years, where he headed a department and oversaw training and research activities on the Rennes campus.
-Prior to his tenure at IMT Atlantique, he has held various academic positions and responsibilities in France and abroad, including at the ENSAI in Rennes, the University of Nantes, and Sapienza University of Rome.
+Between June 2023 and September 2024, he served as Director of Research and Innovation at IMT Nord Europe.
+Before that, he has held various academic positions and responsibilities in France and abroad: Full Professor at IMT Atlantique, Associate Professor at ENSAI in Rennes, Assistant Professor the University of Nantes, and Sapienza University of Rome.
 
 His research topics are mainly related to Models for large-scale distributed systems and networks, with application in Data stream analysis, Cybersecurity, Massive health data and Artificial Intelligence. Recently, his areas of application range from (1) cybersecurity and dependability to (2) the analysis of medical data, in the context of pharmacovigilance or genomic sequence analysis, and (3) the self-organized coordination of fleets of drones. He has published over 100 articles in peer-reviewed journals and conferences. He has also coordinated several national and international collaborative research projects, and is currently a member of the steering committee of the French national research group on networks and distributed systems (GDR RSD).
 
