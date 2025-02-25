@@ -112,7 +112,7 @@ Luxembourg \\ % City, Country
     However, the distributed nature of \gls{fl} raises new challenges, notably the heterogeneity of clients' data distributions and the identification of malicious contributions.
     
     This three-part tutorial introduces the audience to (i) the principles of \gls{fl}, (ii) its application to network security, focusing on building \glspl{cids} using \gls{fl}, and (iii) the security challenges associated with deploying \gls{fids}, with a focus on poisoning attacks.
-    Each part is illustrated by hands-on exercises, with step-by-step instructions provided in companion material.
+    Each part is illustrated with hands-on exercises, with step-by-step instructions provided in the companion material.
 \end{abstract}
 
 \glsresetall
@@ -132,27 +132,26 @@ Yet, this use case comes with its own set of challenges, notably due to the hete
 
 This tutorial delves into the fundamentals of \gls{fl}, exploring its core principles and applications (\Cref{sec:fl}), with a focus on collaborative network security.
 The topic is particularly relevant for the distributed system community, as it echoes to a lot of the challenges faced in this field.
-The aim is to establish a solid foundation for understanding the subsequent discussions on \gls{fl}'s applications in collaborative network security and the associated security challenges.
-Previous iterations of this tutorial have been held at various venues, including the 14th IEEE/Comsoc International Conference on Network of the Future (NoF) in October 2023~\cite{lavaur_nof_tuto_2023} and the 2024 IEEE International Conference on Distributed Computing Systems (ICDCS)~\cite{lavaur_icdcs_tuto_2024}.
-However, due to organizational issues at the last ICDCS edition, tutorials there had underwhelming attendance, which limited the benefits of our interactive approach.
-Despite this, we believe that the topic is more relevant than ever, as the community is increasingly interested in the intersection of \gls{fl} and network security.
-
+The aim is to establish a solid foundation for understanding the subsequent discussions on the applications of \gls{fl} in collaborative network security and the associated security challenges.
+Previous iterations of this tutorial have been held at various venues, including the 14th IEEE/Comsoc International Conference on Networks of the Future (NoF) in October 2023~\cite{lavaur_nof_tuto_2023} and the 2024 IEEE International Conference on Distributed Computing Systems (ICDCS)~\cite{lavaur_icdcs_tuto_2024}.
+However, due to organizational issues at the last ICDCS edition, the tutorials had underwhelming attendance, which limited the benefits of our interactive approach.
+Despite this, we believe that the number of FL-related tracks and workshops planned at ICDCS 2025 highlights the increasing interest of this community for \gls{fl} and its applications, including distributed network security.
 
 \subsection{Tutorial content}
 
-The tutorial is divided in three parts, each doubled with hands-on exercises to provide participants with practical insights into the complexities of collaborative network security using \gls{fl}.
-Specifically, the tutorial covers the following:
+The tutorial is divided into three parts, each doubled with hands-on exercises to provide participants with practical insights into the complexities of collaborative network security using \gls{fl}.
+Specifically, the tutorial covers the following.
 \begin{enumerate}[(i)]
-    \item Fundamentals of \acrfull{fl} (\Cref{sec:fl}), where participants are introduced to the core principles of \gls{fl} and its applications.
-    \item \gls{fl} for Collaborative Network Security (\Cref{sec:fids}), focusing on the application of \gls{fl} to network security, and more specifically to the training of \gls{cids} models.
-    \item Security Challenges in \gls{fl} (\Cref{sec:threats}), addressing the challenges of deploying and running \glspl{fids}, with a focus on poisoning attacks and mitigation strategies.
+    \item \emph{Fundamentals of Federated Learning} (\Cref{sec:fl}), where participants are introduced to the core principles of \gls{fl} and its applications.
+    \item \emph{\gls{fl} for Collaborative Network Security} (\Cref{sec:fids}), focusing on the application of \gls{fl} to network security, and more specifically to the training of \gls{cids} models.
+    \item \emph{Security Challenges in FL} (\Cref{sec:threats}), addressing the challenges of deploying and running \glspl{fids}, with a focus on poisoning attacks and mitigation strategies.
 \end{enumerate}
 
 \paragraph*{Hands-on}
 
 Through examples and hands-on exercises provided in the companion repository\footnote{Available at: \url{https://github.com/leolavaur/icdcs_2025}}, the audience should gain insights into practical implementation of \gls{fl} using Flower~\cite{beutel_Flowerfriendlyfederated_2020}, an open-source Python framework.
 Hands-on activities involve constructing a basic \gls{cids} model using Flower and experimenting with real-world network traffic datasets, providing participants with practical insights into tackling the complexities of collaborative network security using \gls{fl}.
-Through interactive exercises, readers can also simulate and analyzes poisoning attacks on \gls{cids} models, alongside devising and testing mitigation strategies to safeguard against such threats.
+Through interactive exercises, attendees can also simulate and analyze poisoning attacks on \gls{cids} models, along with devising and testing mitigation strategies to safeguard against such threats.
 
 \subsection{Practical implementation}
 
@@ -171,9 +170,9 @@ More participants can be accommodated, in which case the hands-on part will be m
 %Please note that the materials themselves need not be provided in the proposal
 
 The tutorial will be supported by slides and Jupyter notebooks, which will be distributed to the participants before and after the tutorial, respectively.
-The slides will be in PDF format and will include references to the literature for further reading.
+The slides will be in PDF format and include references to the literature for further reading.
 The Jupyter notebooks will contain step-by-step instructions and code snippets to fill, and installation instructions will be provided beforehand for the required dependencies (such as NumPy, Pandas, Matplotlib, TensorFlow, Flower\dots).
-However, attendees must be warned that issues with their environment will not be addressed during the tutorial, and that deep learning frameworks can be resource-intensive.
+However, attendees must be warned that issues with their environment will not be addressed during the tutorial and that deep learning frameworks can be resource-intensive.
 Alternatively, the Jupyter notebooks will also be loadable in Google Colab, so that participants can run them directly in their browser without any installation, albeit with potential limitations on the available resources.
 
 \subsection{Paper content}
@@ -201,9 +200,9 @@ By allowing nodes to collaborate on model updates without sharing raw data, \gls
 \subsection{FL in a Nutshell}
 
 At its core, unlike traditional centralized learning approaches, \gls{fl} does not require raw data to be uploaded to a central server.
-The latter transmits to the participating nodes an initial model, usually generated randomly (\cf, \Cref{fig:fl-phase1}).
-Then, model updates are computed locally on each device based on its data and then shared with a central server or aggregator (\cf, \Cref{fig:fl-phase2}).
-These updates are aggregated to construct a global model, which is subsequently refined and redistributed back to the participating devices.
+The latter transmits an initial model to the participating nodes, usually generated randomly (\cf, \Cref{fig:fl-phase1}).
+Then, the model updates are computed locally on each device based on its data and then shared with a central server or aggregator (\cf, \Cref{fig:fl-phase2}).
+These updates are aggregated to construct a global model, which is subsequently refined and redistributed to the participating devices.
 This iterative process continues, with each round of communication and aggregation improving the global model's accuracy without compromising the privacy of individual data.
 
 
@@ -226,27 +225,27 @@ This iterative process continues, with each round of communication and aggregati
 \end{figure}
 
 Despite its promising potential, \gls{fl} faces several challenges, including power consumption, dropped connections or high-latency due to stragglers, especially in cross-device settings.
-Moreover, other issues must be considered, like adversarial behaviors targeting performance or privacy.
-These challenges necessitate robust solutions like end-to-end encryption and secure aggregation to safeguard data integrity and confidentiality.
+Moreover, other issues must be considered, such as adversarial behaviors targeting performance or privacy.
+These challenges require robust solutions such as end-to-end encryption and secure aggregation to safeguard data integrity and confidentiality.
 
 %% DIFFERENT APPROACH OF FL
 \subsection{Different Approaches of FL}
 
 Two main types of federation coexist, depending on the context and its requirements: \gls{cdfl} and \gls{csfl}.
 
-\paragraph*{Cross-device FL} In \emph{cross-device} settings, the participating devices are typically heterogeneous and widely distributed, encompassing a massive number of parties, such as smartphones, IoT devices, and personal computers, potentially ranging from thousands to billions, with each device possessing a small dataset.
-Due to the diversity of devices and their varying computational capabilities, cross-device \gls{fl} often encounters challenges related to limited availability, reliability, and communication overhead, but offers scalability and adaptability, making it suitable for scenarios where a large and diverse set are used to train a single model for a third party.
+\paragraph*{Cross-device FL} In \emph{cross-device} settings, the participating devices are typically heterogeneous and widely distributed, encompassing a massive number of parties, such as smartphones, IoT devices and personal computers, potentially ranging from thousands to billions, each device having a small dataset.
+Due to the diversity of devices and their varying computational capabilities, cross-device \gls{fl} often encounters challenges related to limited availability, reliability, and communication overhead, but offers scalability and adaptability, making it suitable for scenarios where a large and diverse set of devices is used to train a single model for a third party.
 
 \paragraph*{Cross-silo FL} In contrast, \emph{cross-silo} \gls{fl} operates within organizational boundaries or distinct data silos, where each silo represents a separate entity or institution.
 Silos could correspond to different departments within a company, independent organizations, or even geographical regions.
-Unlike \gls{cdfl}, which involves heterogeneous devices, \gls{csfl} typically implies organization with more homogeneous capabilities and more data to train on.
+Unlike \gls{cdfl}, which involves heterogeneous devices, \gls{csfl} typically implies organizations with more homogeneous capabilities and more data to train on.
 Parties in cross-silo \gls{fl} are more likely to be reliable and consistently available for participation, as they are usually institutional entities with dedicated infrastructure and resources.
 Yet, entities involved in \gls{csfl} also tend to have considerably greater discrepancies in terms of objectives and data-distributions, and sometimes even model architectures.
 Cross-silo \gls{fl} offers more control over data governance and security, as data sharing occurs within predefined organizational boundaries, facilitating compliance with regulatory requirements and privacy policies.
 %\end{itemize}
 
-On the other side, the typical server-orchestrated gets challenged in the literature with other forms of architectures aiming at removing this single point of failure, from hierarchical aggregation mechanisms, to fully decentralized settings.
-Each then introduces its own set of benefits and constraints, although those will be out of the scope of this tutorial.
+On the other side, the typical server-orchestrated is challenged in the literature with other forms of architecture aimed at removing this single point of failure, from hierarchical aggregation mechanisms to fully decentralized settings.
+Each then introduces its own set of benefits and constraints, although those are beyond the scope of this tutorial.
 
 % \subsection{Wide Acceptance of the Paradigm}
 
@@ -266,7 +265,7 @@ Each then introduces its own set of benefits and constraints, although those wil
 
 \Gls{ai} can intervene at various stages of the network security lifecycle, from threat detection to alert correlation and triage.
 %In particular, \glspl{ai}-enriched \glspl{ids} have emerged as a critical component of modern network security architectures, enabling organizations to timely detect security incidents.
-\Gls{dl} techniques, in particular, have shown promising results in enhancing the performance of \glspl{ids} by allowing for learning more complex patterns and behaviors, and generalizing to zero- or one-day attacks.
+\Gls{dl} techniques, in particular, have shown promising results in improving the performance of \glspl{ids} by allowing more complex patterns and behaviors to be learned, and generalizing to zero- or one-day attacks.
 %% FL for intrusion detection
 Yet, training \gls{dl}-based \glspl{ids} requires large amounts of labeled data to properly learn the underlying patterns of normal and malicious behaviors.
 In practice, organizations often face challenges in collecting and sharing such data due to privacy concerns, such as sensitive information leakage or regulatory compliance.
@@ -319,17 +318,17 @@ These challenges span over three main axes:
 The distributed nature of \gls{fids} opens the way to various attack vectors, ranging from poisoning attacks to privacy breaches.
 The former aim at altering the global model's behavior, while the latter target the confidentiality of the data used by the participants' in training.
 We especially focus on the poisoning attacks, as they are particularly relevant in the context of \gls{fids}~\cite{lavaur_icdcs_demo}.
-Indeed, the ability to manipulate the global model is a significant threat, as it can lead to an overall decrease in the protected system's security.
+Indeed, the ability to manipulate the global model is a significant threat, as it can lead to an overall decrease in the security of the protected system.
 \citet{rodriguez-barroso_survey_2023} summarizes the different types of poisoning attacks in a fourfold taxonomy:
 
 \begin{enumerate}[(i)]
-\item \emph{Attack Moment}: whether the attack is performed during the training or the inference phase.
+\item \emph{Attack Moment}: whether the attack is performed during the training or inference phases.
 
 \item \emph{Attackers' Objective}: targeted/backdoor attacks aim at specific samples or classes, modifying the model's behavior when subjected to specific behaviors, while untargeted poisoning alters the global model uniformly.
 
 \item \emph{Poisoned components}: the attack can target the data, the model, or the communication channel.
 
-\item \emph{Frequency}: one-shot attacks or adaptive/iterative ones; in the latter case, different strategies can be adopted, \eg, increasing the percentage data over time to slowly divert the global model of its original local optimum.
+\item \emph{Frequency}: one-shot attacks or adaptive/iterative ones; in the latter case, different strategies can be adopted, \eg, increasing the percentage of data over time to slowly divert the global model of its original local optimum.
 \end{enumerate}
 
 
@@ -356,7 +355,7 @@ Indeed, the ability to manipulate the global model is a significant threat, as i
 
 \subsection{Mitigation strategies}
 
-Fortunately, the community also proposed numerous mitigation strategies against adversarial attacks targeting \gls{fl} systems, and \gls{fids} by extension.
+Fortunately, the community also proposed numerous mitigation strategies against adversarial attacks targeting \gls{fl} systems and \gls{fids} by extension.
 Specifically, multiple works have focused on the development of robust aggregation algorithms and contributions filtering mechanisms, which can mitigate the effect of poisoning attacks.
 These strategies can be classified into three main categories:
 
@@ -366,10 +365,10 @@ This is mostly inapplicable in \gls{niid} settings, as building a representative
     
 \paragraph*{Server-side model comparison} the server compares the received contributions to a reference model, or to each other.
 In the former, just as in the previous case, the absence of a single-source-of-truth in \gls{niid} settings makes this approach difficult.
-By comparing models to each other, however, the server can detect discrepancies and identify potential malicious contributions.
+However, by comparing models with each other, the server can detect discrepancies and identify potential malicious contributions.
 This is the strategy leveraged by \texttt{FoolsGold} or \texttt{FLAME}, although with different approaches and objectives.
 
-\paragraph*{Client-side evaluation} the clients are tasked to evaluate other participants' contributions and generate metrics using their local dataset.
+\paragraph*{Client-side evaluation} the clients are tasked to evaluate the contributions of other participants and generate metrics using their local dataset.
 This removes the need for a single source of truth, while the metrics act as feedbacks that can be used to feed reputation systems.
 %\end{enumerate}
 
@@ -391,7 +390,7 @@ This removes the need for a single source of truth, while the metrics act as fee
     [{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{img/yann.jpg}}]%
     {Yann Busnel} is Senior Vice-President for Research at the Institut Mines-Télécom (IMT), France. With several years of experience within the IMT group, particularly at IMT Atlantique and IMT Nord Europe, he is responsible for developing and implementing the institution's scientific strategy. His work involves fostering inter-affiliate collaborations, overseeing doctoral programs, managing the PhD diploma of IMT, and coordinating the activities of its 11 scientific communities. He has over 15 years of experience in research and higher education. Between June 2023 and September 2024, he served as Director of Research and Innovation at IMT Nord Europe. Before that, he has held various academic positions and responsibilities in France and abroad: Full Professor at IMT Atlantique, Associate Professor at ENSAI in Rennes, Assistant Professor at the University of Nantes, and Researcher at Sapienza University of Rome.
 
-    His research topics are mainly related to Models for large-scale distributed systems and networks, with application in Data stream analysis, Cybersecurity, Massive health data and Artificial Intelligence. Recently, his areas of application range from (1) cybersecurity and dependability to (2) the analysis of medical data, in the context of pharmacovigilance or genomic sequence analysis, and (3) the self-organized coordination of fleets of drones. He has published over 100 articles in peer-reviewed journals and conferences. He has also coordinated several national and international collaborative research projects, and is currently a member of the steering committee of the French national research group on networks and distributed systems (GDR RSD).
+    His research topics are mainly related to Models for large-scale distributed systems and networks, with application in Data stream analysis, Cybersecurity, Massive health data and Artificial Intelligence. Recently, his areas of application range from (1) cybersecurity and dependability, to (2) the analysis of medical data, in the context of pharmacovigilance or genomic sequence analysis, and (3) the self-organized coordination of drone fleets. He has published over 100 articles in peer-reviewed journals and conferences. He has also coordinated several national and international collaborative research projects and is currently a member of the steering committee of the French national research group on networks and distributed systems (GDR RSD).
 \end{IEEEbiography}
 
 \begin{IEEEbiography}%
