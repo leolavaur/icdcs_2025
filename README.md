@@ -1,9 +1,7 @@
 # FL x Security for Network Monitoring
 
 > [!IMPORTANT]
-> Note: This repository is a proposal for ICDCS 2025.
-The tutorial will be held only if accepted, and its content is subject to change.
-
+> Note: The repository currently hosts the existing materials from ICDCS 2024 as reference, but its content is subject to change.
 
 This tutorial will be held at the [45th IEEE International Conference on Distributed Computing Systems](https://icdcs2025.icdcs.org/) (ICDCS 2025) in July 2025.
 This repository contains the materials, including the Jupyter notebooks and the presentations support, that have been used during the tutorial.
@@ -39,6 +37,7 @@ Between June 2023 and September 2024, he served as Director of Research and Inno
 Before that, he has held various academic positions and responsibilities in France and abroad: Full Professor at IMT Atlantique, Associate Professor at ENSAI in Rennes, Assistant Professor the University of Nantes, and Sapienza University of Rome.
 
 His research topics are mainly related to Models for large-scale distributed systems and networks, with application in Data stream analysis, Cybersecurity, Massive health data and Artificial Intelligence. Recently, his areas of application range from (1) cybersecurity and dependability to (2) the analysis of medical data, in the context of pharmacovigilance or genomic sequence analysis, and (3) the self-organized coordination of fleets of drones. He has published over 100 articles in peer-reviewed journals and conferences. He has also coordinated several national and international collaborative research projects, and is currently a member of the steering committee of the French national research group on networks and distributed systems (GDR RSD).
+
 
 ### Léo Lavaur
 
@@ -79,14 +78,8 @@ Depending on the nature of the federation (public or private, trustworthiness of
 In particular, we will focus on poisoning attacks, where a participant tries to degrade the global model by sending malicious contributions, before discussing possible countermeasures.
 The hands-on will consist of simulating a poisoning attack on the CIDS model built in the previous part, and experimenting with strategies to detect and mitigate such attacks.
 
+
 ## Materials
-
-### Repository structure
-
-The repository is structured as follows:
-```bash
-.
-```
 
 ### Installation
 
