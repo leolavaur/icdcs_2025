@@ -1,21 +1,8 @@
-{ pkgs, ... }:
-
-let
-  fonts = pkgs.symlinkJoin {
-    name = "fonts";
-    paths = [
-      pkgs.fira
-      pkgs.fira-code
-    ];
-  };
-in
-
+{pkgs ? import <nixpkgs> {}, ...}:
 pkgs.mkShellNoCC {
+  name = "icdcs-2025";
 
-  OSFONTDIR = "${fonts}/share/fonts";
-
-  buildInputs = with pkgs; [
-
+  packages = with pkgs; [
     # LaTeX
     texliveFull
     tex-fmt
@@ -24,4 +11,10 @@ pkgs.mkShellNoCC {
     python312
     uv
   ];
+
+  shellHook = ''
+    unset PYTHONPATH
+
+    test -d .venv && source .venv/bin/activate || echo "No virtualenv found."
+  '';
 }
