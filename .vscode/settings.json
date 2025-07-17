@@ -14,6 +14,7 @@
         },
     },
     "notebook.formatOnSave.enabled": true,
+    "notebook.defaultFormatter": "charliermarsh.ruff",
     "notebook.codeActionsOnSave": {
         "source.organizeImports": "explicit",
         "source.fixAll": "explicit"
