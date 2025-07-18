@@ -38,3 +38,7 @@ include = ["*.py", "*.pyi", "pyproject.toml", "*.ipynb"]
 
 [tool.ruff.lint]
 select = ["D"]
+
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
