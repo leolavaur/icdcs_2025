@@ -7,7 +7,7 @@ from datasets import ClassLabel, Dataset
 from flwr_datasets.partitioner.partitioner import Partitioner
 
 
-class ClassDropPartioner(Partitioner):
+class ClassDropPartitioner(Partitioner):
     """Partitioner creates each partition sampled randomly from the dataset.
 
     Parameters
@@ -68,22 +68,21 @@ class ClassDropPartioner(Partitioner):
     def dataset(self, value: Dataset) -> None:
         """Set the dataset property."""
         label = value.features[self._partition_by]
-        classes = set(value.unique(self._partition_by))
+        classes = value.unique(self._partition_by)
 
-        if len(classes) < self._n_drop:
-            raise ValueError(
-                f"Cannot drop {self._n_drop} classes from {len(classes)} available classes."
-            )
         if self._droppable is not None:
             if isinstance(label, ClassLabel):
                 self._droppable = [label.str2int(cls) for cls in self._droppable]
 
-            if not set(self._droppable).issubset(set(classes)):
-                raise ValueError(
-                    "Droppable classes must be a subset of the dataset's classes."
-                )
+            self._droppable = [cls for cls in self._droppable if cls in classes]
         else:
             self._droppable = list(classes)
+
+        if len(self._droppable) < self._n_drop:
+            raise ValueError(
+                f"Not enough droppable classes in the dataset. "
+                f"Available: {len(classes)}, Droppable: {len(self._droppable)}"
+            )
 
         ds = value.shuffle(seed=self._seed)
         Partitioner.dataset.fset(self, ds)
@@ -97,9 +96,19 @@ if __name__ == "__main__":
     from nslkdd import load_nslkdd
 
     ds = load_nslkdd()
-
-    partitioner = ClassDropPartioner(
+    print(ds["train"].unique("label"))
+    partitioner = ClassDropPartitioner(
         num_partitions=10,
+        droppable=[
+            "back",
+            "httptunnel",
+            "ipsweep",
+            "neptune",
+            "portsweep",
+            "saint",
+            "satan",
+            "smurf",
+        ],
     )
     partitioner.dataset = ds["train"]
     partition = partitioner.load_partition(partition_id=0)
