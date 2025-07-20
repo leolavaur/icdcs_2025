@@ -1,3 +1,6 @@
+# Model exports
+**/fl_weights.npy
+
 # LaTeX build directory
 .build/
 

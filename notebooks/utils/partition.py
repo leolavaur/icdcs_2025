@@ -7,6 +7,44 @@ from datasets import ClassLabel, Dataset
 from flwr_datasets.partitioner.partitioner import Partitioner
 
 
+class MockPartitioner(Partitioner):
+    """Mock partitioner that wraps a list of datasets."""
+
+    def __init__(self, datasets: list[Dataset]) -> None:
+        super().__init__()
+        self._datasets = datasets
+
+    def load_partition(self, partition_id: int) -> Dataset:
+        """Load a single IID partition based on the partition index.
+
+        Parameters
+        ----------
+        partition_id : int
+            the index that corresponds to the requested partition
+
+        Returns
+        -------
+        dataset_partition : Dataset
+            single dataset partition
+        """
+        return self._datasets[partition_id]
+
+    @property
+    def num_partitions(self) -> int:
+        """Total number of partitions."""
+        return len(self._datasets)
+
+    @property
+    def dataset(self) -> Dataset:
+        """Get the dataset property."""
+        raise NotImplementedError("MockPartitioner does not support getting dataset.")
+
+    @Partitioner.dataset.setter
+    def dataset(self, value: Dataset) -> None:
+        """Set the dataset property."""
+        raise NotImplementedError("MockPartitioner does not support setting dataset.")
+
+
 class ClassDropPartitioner(Partitioner):
     """Partitioner creates each partition sampled randomly from the dataset.
 
