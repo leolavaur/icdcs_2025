@@ -3,16 +3,17 @@
 import random
 
 import numpy as np
-from datasets import ClassLabel, Dataset
+from datasets import ClassLabel, Dataset, concatenate_datasets
 from flwr_datasets.partitioner.partitioner import Partitioner
 
 
 class MockPartitioner(Partitioner):
     """Mock partitioner that wraps a list of datasets."""
 
-    def __init__(self, datasets: list[Dataset]) -> None:
+    def __init__(self, partitions: list[Dataset]) -> None:
         super().__init__()
-        self._datasets = datasets
+        self._partitions = partitions
+        self._dataset = concatenate_datasets(partitions)
 
     def load_partition(self, partition_id: int) -> Dataset:
         """Load a single IID partition based on the partition index.
@@ -27,12 +28,12 @@ class MockPartitioner(Partitioner):
         dataset_partition : Dataset
             single dataset partition
         """
-        return self._datasets[partition_id]
+        return self._partitions[partition_id]
 
     @property
     def num_partitions(self) -> int:
         """Total number of partitions."""
-        return len(self._datasets)
+        return len(self._partitions)
 
     @property
     def dataset(self) -> Dataset:
