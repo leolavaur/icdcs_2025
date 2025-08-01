@@ -1,9 +1,6 @@
 # Federated Learning and Network Security: Foundations, Potential, and Resilience
 
-> [!IMPORTANT]
-> Note: The repository currently hosts the existing materials from ICDCS 2024 as reference, but its content is being updated for the 2025 edition.
-
-This tutorial will be held at the [45th IEEE International Conference on Distributed Computing Systems](https://icdcs2025.icdcs.org/) (ICDCS 2025) in July 2025.
+This tutorial was held at the [45th IEEE International Conference on Distributed Computing Systems](https://icdcs2025.icdcs.org/) (ICDCS 2025) in July 2025.
 This repository contains the materials, including the Jupyter notebooks and the presentations support, that have been used during the tutorial.
 You can find a published summary of the tutorial content in the conference proceedings.
 
